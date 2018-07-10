@@ -2,6 +2,7 @@ package lambda;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 最流行的函数编程概念是map，它允许你改变你的对象，在这个案例中，我们将costBeforeTeax集合中每个元素改变了增加一定的数值，
@@ -26,5 +27,18 @@ public class MapAndReduce {
                 .reduce((sum, cost) -> sum + cost)
                 .get();
         System.out.println("Total : " + bill);
+    }
+
+    /**
+     * 我们经常需要对集合中元素运用一定的功能，如表中的每个元素乘以或除以一个值等等.
+     * 下面是将字符串转换为大写，然后使用逗号串起来
+     *
+     */
+    public void RUN3(){
+        List<String> G7 = Arrays.asList("USA", "Japan", "France", "Germany",
+                "Italy", "U.K.","Canada");
+        String G7Countries = G7.stream().map(x -> x.toUpperCase())
+                .collect(Collectors.joining(", "));
+        System.out.println(G7Countries);
     }
 }
