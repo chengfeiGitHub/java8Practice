@@ -28,6 +28,18 @@ public class ListSort {
       //  apples.sort((a1,a2)->-a1.getWeight().compareTo(a2.getWeight()));
         //或者更简洁的方式
         apples.sort(comparing((apple -> apple.getWeight()) ));
+        //逆序
+        apples.sort(comparing(Apple::getWeight).reversed());
+        /**
+         * 但如果发现有两个苹果一样重怎么办？哪个苹果应该排在前面呢？你可能
+         * 需要再提供一个Comparator来进一步定义这个比较。比如，在按重量比较两个苹果之后，你可
+         * 能想要按原产国排序。thenComparing方法就是做这个用的。它接受一个函数作为参数（就像
+         * comparing方法一样），如果两个对象用第一个Comparator比较之后是一样的，就提供第二个
+         * Comparator。你又可以优雅地解决这个问题了：
+         */
+        apples.sort(comparing(Apple::getWeight)
+                .reversed()
+                .thenComparing(Apple::getColor));
         apples.forEach(System.out::println);
     }
 }
