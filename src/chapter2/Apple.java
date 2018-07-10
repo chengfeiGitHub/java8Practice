@@ -2,7 +2,7 @@ package chapter2;
 
 public class Apple {
     String color;
-    int    weight;
+    Integer    weight;
 
     public String getColor() {
         return color;
@@ -12,11 +12,11 @@ public class Apple {
         this.color = color;
     }
 
-    public int getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 

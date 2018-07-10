@@ -1,5 +1,6 @@
 import lambda.Filter;
 import lambda.L_Predicate;
+import lambda.ListSort;
 import lambda.Test1;
 
 import java.util.Arrays;
@@ -37,8 +38,11 @@ public class Main {
 //        L_Predicate l_predicate = new L_Predicate();
 //        l_predicate.RUN2();
 
-        Filter filter = new Filter();
-        filter.RUN();
+//        Filter filter = new Filter();
+//        filter.RUN();
+
+        ListSort listSort = new ListSort();
+        listSort.RUN();
     }
 
 }

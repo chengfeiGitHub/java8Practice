@@ -3,9 +3,10 @@ package lambda;
 /**
  * 为了支持函数编程，Java 8加入了一个新的包java.util.function，
  * 其中有一个接口java.util.function.Predicate是支持Lambda函数编程：
+ * Predicate函数式接口的主要作用就是提供一个test方法，
+ * 接受一个参数返回一个布尔类型，Predicate在stream api中进行一些判断的时候非常常用。
  */
 
-import javax.imageio.stream.IIOByteBuffer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
@@ -28,7 +29,6 @@ public class L_Predicate {
 
         System.out.println("Print language whose length greater than 4:");
         filter(languages, (str)->str.length() > 4);
-
     }
 
 
