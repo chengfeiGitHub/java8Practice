@@ -5,6 +5,7 @@ package lambda;
  * 其中有一个接口java.util.function.Predicate是支持Lambda函数编程：
  */
 
+import javax.imageio.stream.IIOByteBuffer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
@@ -37,6 +38,18 @@ public class L_Predicate {
                 System.out.println(name + " ");
             }
         }
+    }
+
+    /**
+     * filter2和filter实现的功能是一样的
+     * @param names
+     * @param condition
+     */
+    public static void filter2(List names, Predicate condition) {
+        names.stream().filter((name) -> (condition.test(name)))
+                .forEach((name) -> {
+                    System.out.println(name + " ");
+                });
     }
 
     /**

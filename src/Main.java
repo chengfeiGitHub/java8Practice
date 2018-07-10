@@ -1,3 +1,4 @@
+import lambda.Filter;
 import lambda.L_Predicate;
 import lambda.Test1;
 
@@ -31,8 +32,13 @@ public class Main {
 
 //        Test1 test = new Test1();
 //        test.SortPlayers();
-        L_Predicate l_predicate = new L_Predicate();
-        l_predicate.RUN2();
+
+
+//        L_Predicate l_predicate = new L_Predicate();
+//        l_predicate.RUN2();
+
+        Filter filter = new Filter();
+        filter.RUN();
     }
 
 }
