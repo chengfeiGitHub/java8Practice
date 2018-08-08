@@ -2,6 +2,7 @@ package lambda;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -41,4 +42,77 @@ public class MapAndReduce {
                 .collect(Collectors.joining(", "));
         System.out.println(G7Countries);
     }
+
+    /**
+     * ，flatmap方法让你把一个流中的每个值都换成另一个流，然后把所有的流连接
+     * 起来成为一个流。
+     */
+    public void RUN4(){
+        List<String> HW = Arrays.asList("Hello","World");
+        List<String> uniqueCharacters =
+                HW.stream()
+                        .map(w -> w.split(""))
+                        .flatMap(Arrays::stream)
+                        .distinct()
+                        .collect(Collectors.toList());
+        uniqueCharacters.stream().forEach(System.out::println);
+    }
+    //生成数对
+    public void RUN5(){
+        List<Integer> numbers1 = Arrays.asList(1, 2, 3);
+        List<Integer> numbers2 = Arrays.asList(3, 4);
+        List<int[]> pairs =
+                numbers1.stream()
+                        .flatMap(i -> numbers2.stream()
+                                .map(j -> new int[]{i, j})
+                        )
+                        .collect(Collectors.toList());
+
+        List<Integer> pairs1 = numbers1.stream()
+                            .filter(i-> !numbers2.stream().anyMatch(j->j.equals(i) ))
+                            .collect(Collectors.toList());
+
+        pairs1.stream().forEach(System.out::println);
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * reduce操作
+     * 使用reduce操作来表达更复杂的查
+     * 询，比如“计算菜单中的总卡路里”或“菜单中卡路里最高的菜是哪一个”。此类查询需要将流
+     * 返回一个Optional<Dish> 如果包含一个 值就打印它，否 则什么都不做
+     * 中所有元素反复结合起来，得到一个值，比如一个Integer。这样的查询可以被归类为归约操作
+     * （将流归约成一个值）
+     */
+
+    /**
+     * 求和操作
+     */
+    public void RUN6(){
+        List<Integer> integers = Arrays.asList(1,2,3,4,5,6,7);
+        //int sum = integers.stream().reduce(0,(a,b)->a+b);
+        //或者使用下面这种方法
+        int sum = integers.stream().reduce(0,Integer::sum);
+        System.out.print(sum);
+    }
+
+    /**
+     * 求最大最小值
+     */
+    public void RUN7(){
+        List<Integer> numbers = Arrays.asList(1,4,7,3,10,12,32);
+        Optional<Integer> max = numbers.stream().reduce(Integer::max);
+        Optional<Integer> min = numbers.stream().reduce(Integer::min);
+        if(max.isPresent()){
+            System.out.print(max.get());
+        }
+
+    }
+
+
+
+
+
+
 }

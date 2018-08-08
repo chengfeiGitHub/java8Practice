@@ -1,7 +1,4 @@
-import lambda.Filter;
-import lambda.L_Predicate;
-import lambda.ListSort;
-import lambda.Test1;
+import lambda.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -41,8 +38,10 @@ public class Main {
 //        Filter filter = new Filter();
 //        filter.RUN();
 
-        ListSort listSort = new ListSort();
-        listSort.RUN();
+//        ListSort listSort = new ListSort();
+//        listSort.RUN();
+        MapAndReduce mapAndReduce = new MapAndReduce();
+        mapAndReduce.RUN5();
     }
 
 }
